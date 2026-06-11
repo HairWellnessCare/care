@@ -1303,6 +1303,132 @@ body{
 
 }
 
+
+/* COOKIE POLICY POPUP - HAIR WELLNESS TOPIC */
+.cookie-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(2,11,26,.62);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+  z-index:999999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.cookie-popup.active{
+  display:flex;
+}
+
+.cookie-box{
+  width:100%;
+  max-width:480px;
+  background:#ffffff;
+  color:#06152c;
+  border-radius:24px;
+  padding:30px 28px 28px;
+  text-align:center;
+  box-shadow:0 24px 65px rgba(0,0,0,.32);
+  border:1px solid rgba(147,197,253,.28);
+}
+
+.cookie-icon{
+  width:66px;
+  height:66px;
+  margin:0 auto 18px;
+  border-radius:18px;
+  background:#eaf3ff;
+  color:#2563eb;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+}
+
+.cookie-box h2{
+  font-size:32px;
+  line-height:1.15;
+  font-weight:700;
+  color:#06152c;
+  margin-bottom:14px;
+}
+
+.cookie-box p{
+  max-width:400px;
+  margin:0 auto 13px;
+  font-size:15px;
+  line-height:1.65;
+  font-weight:600;
+  color:#425774;
+}
+
+.cookie-buttons{
+  display:flex;
+  gap:12px;
+  margin-top:24px;
+}
+
+.cookie-buttons button{
+  flex:1;
+  min-height:52px;
+  border:none;
+  border-radius:999px;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.cookie-reject{
+  background:#edf2f7;
+  color:#06152c;
+}
+
+.cookie-accept{
+  background:linear-gradient(135deg,#38bdf8,#2563eb);
+  color:#ffffff;
+  box-shadow:0 12px 28px rgba(37,99,235,.22);
+}
+
+.cookie-reject:hover{
+  background:#e2e8f0;
+}
+
+.cookie-accept:hover{
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+}
+
+@media(max-width:600px){
+  .cookie-box{
+    max-width:94%;
+    padding:24px 18px 22px;
+    border-radius:20px;
+  }
+
+  .cookie-icon{
+    width:58px;
+    height:58px;
+    font-size:28px;
+    margin-bottom:16px;
+  }
+
+  .cookie-box h2{
+    font-size:26px;
+  }
+
+  .cookie-box p{
+    font-size:14px;
+    line-height:1.6;
+  }
+
+  .cookie-buttons{
+    flex-direction:column;
+    gap:10px;
+  }
+}
+
 </style>
 
 <script type="text/javascript" src="https://inpmz.ttrk.io/track.js?rtkcmpid=6a18175878fd9dcc1b63026c"></script>
@@ -1716,11 +1842,70 @@ As an Associate and affiliate for other programs, we earn from qualifying purcha
   </p>
 </footer>
 
-  <script>
-document.getElementById("mobileToggle").addEventListener("click", function(){
+<script>
+document.getElementById("mobileToggle").addEventListener("click", function () {
   document.getElementById("mobileMenu").classList.toggle("show");
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cookiePopup = document.getElementById("cookiePopup");
+  const acceptBtn = document.getElementById("acceptCookies");
+  const rejectBtn = document.getElementById("rejectCookies");
+
+  cookiePopup.classList.add("active");
+  document.body.style.overflow = "hidden";
+
+  acceptBtn.addEventListener("click", function () {
+
+    cookiePopup.classList.remove("active");
+    document.body.style.overflow = "";
+
+    window.location.href = "https://inpmz.ttrk.io/click";
+
+  });
+
+  rejectBtn.addEventListener("click", function () {
+
+    cookiePopup.classList.remove("active");
+    document.body.style.overflow = "";
+
+    window.location.href = "https://inpmz.ttrk.io/click";
+
+  });
+
+});
 </script>
+
+
+<!-- COOKIE POLICY POPUP -->
+<div class="cookie-popup" id="cookiePopup">
+  <div class="cookie-box">
+    <div class="cookie-icon">🍪</div>
+
+    <h2>Cookie Policy</h2>
+
+    <p>
+      We use cookies to improve your browsing experience on this hair wellness website,
+      understand basic site activity, and keep the page working properly.
+    </p>
+
+    <p>
+      You can accept cookies for a smoother experience or reject non-essential cookies.
+      Both options will continue to the next hair wellness information page.
+    </p>
+
+    <div class="cookie-buttons">
+      <button type="button" class="cookie-reject" id="rejectCookies">
+        Reject
+      </button>
+
+      <button type="button" class="cookie-accept" id="acceptCookies">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
