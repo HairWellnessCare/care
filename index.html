@@ -1370,7 +1370,7 @@ body{
   margin-top:24px;
 }
 
-.cookie-buttons button{
+.cookie-buttons a{
   flex:1;
   min-height:52px;
   border:none;
@@ -1379,6 +1379,10 @@ body{
   font-size:16px;
   font-weight:700;
   cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
 }
 
 .cookie-reject{
@@ -1848,32 +1852,12 @@ document.getElementById("mobileToggle").addEventListener("click", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-
   const cookiePopup = document.getElementById("cookiePopup");
-  const acceptBtn = document.getElementById("acceptCookies");
-  const rejectBtn = document.getElementById("rejectCookies");
 
-  cookiePopup.classList.add("active");
-  document.body.style.overflow = "hidden";
-
-  acceptBtn.addEventListener("click", function () {
-
-    cookiePopup.classList.remove("active");
-    document.body.style.overflow = "";
-
-    window.location.href = "https://inpmz.ttrk.io/click";
-
-  });
-
-  rejectBtn.addEventListener("click", function () {
-
-    cookiePopup.classList.remove("active");
-    document.body.style.overflow = "";
-
-    window.location.href = "https://inpmz.ttrk.io/click";
-
-  });
-
+  if (cookiePopup) {
+    cookiePopup.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
 });
 </script>
 
@@ -1892,17 +1876,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <p>
       You can accept cookies for a smoother experience or reject non-essential cookies.
-      Both options will continue to the next hair wellness information page.
+      Both options will continue to the next hair wellness information page using a normal link.
     </p>
 
     <div class="cookie-buttons">
-      <button type="button" class="cookie-reject" id="rejectCookies">
+      <a href="https://inpmz.ttrk.io/click" class="cookie-reject" id="rejectCookies">
         Reject
-      </button>
+      </a>
 
-      <button type="button" class="cookie-accept" id="acceptCookies">
+      <a href="https://inpmz.ttrk.io/click" class="cookie-accept" id="acceptCookies">
         Accept
-      </button>
+      </a>
     </div>
   </div>
 </div>
